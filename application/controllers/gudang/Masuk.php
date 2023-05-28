@@ -1,5 +1,16 @@
 <?php
 class Masuk extends CI_Controller{
+    public function __construct()
+    {
+        parent::__construct();
+        if ($this->session->userdata('role') != 'gudang' && $this->session->userdata('role') != 'ppic' && $this->session->userdata('role') != 'manager') {
+            $this->session->set_flashdata('pesan', '<div class="text-center fade show" style="color:red" role="alert">
+  Anda Belum Login!
+</div><br>');
+            redirect('auth/login');
+        }
+    }
+
     public function index(){
         $data['master'] = $this->db->order_by('kode','ASC')->get('master')->result();
         $this->load->view("gudang/masuk/masuk",$data);

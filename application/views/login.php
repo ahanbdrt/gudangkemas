@@ -40,20 +40,23 @@
                                         <h1 class="h4 text-gray-900 mb-4">Gudang Kemas PT. Indosar</h1>
                                     </div>
                                     <hr>
-                                    <form class="user">
+                                    <?php 
+                                    if($this->session->flashdata("pesan")){
+                                        echo $this->session->flashdata("pesan");
+                                    } ?>
+                                    <form class="user" action="<?= base_url()?>auth/login" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" name="username" class="form-control form-control-user"
+                                                id="username" placeholder="Masukkan Usename">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" name="password" class="form-control form-control-user"
+                                                id="password" placeholder="Password">
                                         </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                     </form>
                                 </div>
                             </div>

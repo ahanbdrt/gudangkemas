@@ -1,6 +1,9 @@
 <?php 
     $this->load->view('gudang/part/header');
-    $this->load->view('gudang/part/menu');?>
+    if($this->session->userdata("role")=="gudang"){
+        $this->load->view('gudang/part/menu');
+    }
+    ?>
 <title>Gudang Kemas | Beranda</title>
 </head>
 <div class="container-fluid">

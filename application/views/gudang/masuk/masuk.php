@@ -80,7 +80,7 @@
                     dom: 'Bfrtip',
                     buttons: [
                         'copy','excel'
-                    ]
+                    ],
                 })
             }
         })
