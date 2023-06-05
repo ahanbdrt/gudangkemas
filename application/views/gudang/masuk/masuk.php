@@ -4,12 +4,12 @@
     ?>
 <title>Gudang Kemas | Transaksi Masuk</title>
 </head>
-<div class="container-fluid">
+<div class="container-fluid"  >
     <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-12">
                 <div class="card shadow mb-4">
-                    <div class="card-header bg-success py-3">
+                    <div class="card-header py-3" style="background-color:lightseagreen">
                         <h3 class="text-white"><b>Transaksi Masuk</b></h3>
                     </div>
                     <div class="card-body bg-light">
@@ -26,7 +26,7 @@
                                     <div class="spinner-grow" style="color:coral" role="status"></div>
                                     <div class="spinner-grow" style="color:fuchsia" role="status"></div>
                                 </div>
-                                <a id="tambah" href="<?= base_url("gudang/masuk/tambahmasuk")?>" hidden class="mb-2 btn btn-sm btn-success"><i class="fas fa-sm fa-plus"></i> Tambah transaksi masuk</a>
+                                <a id="tambah" href="<?= base_url("gudang/masuk/tambahmasuk")?>" hidden class="mb-2 btn btn-sm" style="background-color:lightseagreen;color:white"><i class="fas fa-sm fa-plus"></i> Tambah transaksi masuk</a>
                             <table class="table table-bordered table-responsive" hidden width="100%" id="tabel" cellspacing="0">
                                 <thead>
                                     <tr>

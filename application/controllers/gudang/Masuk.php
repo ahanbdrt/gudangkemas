@@ -149,7 +149,7 @@ class Masuk extends CI_Controller{
                 $this->session->set_flashdata("berhasil","Berhasil di hapus!");
             }
         }else{
-            $this->session->set_flashdata("gagal","Stock tidak cukup!");
+            $this->session->set_flashdata("gagal","Gagal di hapus karena jumlah stock tersisa:".$s->saldo."!");
         }
         redirect("gudang/masuk");
     }

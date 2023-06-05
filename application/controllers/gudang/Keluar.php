@@ -30,9 +30,13 @@ class Keluar extends CI_Controller{
                 "keluar"=>$d->keluar,
                 "tgltrima"=>$d->tgltrima,
                 "cat"=>$d->cat,
-                "aksi"=>'<a href="'.site_url("gudang/masuk/edit").'"class="btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> Edit</a><a href="'.site_url("gudang/masuk/hapus").'"class="mt-1 btn btn-sm btn-danger"><i class="fas fa-trash fa-sm"></i> Hapus</a>'
+                "aksi"=>'<a href="'.site_url("gudang/masuk/edit").'"class="btn btn-sm btn-warning"><i class="fas fa-edit fa-md"></i> Edit</a><a href="'.site_url("gudang/masuk/hapus").'"class="mt-1 btn btn-sm btn-danger"><i class="fas fa-trash fa-sm"></i> Hapus</a>'
             );
         }
         echo json_encode($test);
+    }
+    public function tambahkeluar(){
+        $data['master'] = $this->db->order_by('kode','ASC')->get('master')->result();
+        $this->load->view("gudang/keluar/tambahkeluar",$data);
     }
 }

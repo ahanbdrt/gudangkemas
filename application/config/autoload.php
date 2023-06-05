@@ -137,4 +137,5 @@ $autoload['model'] = array(
     'Keluar_model',
     'Home_model',
     'Auth_model',
+    'Master_model',
 );

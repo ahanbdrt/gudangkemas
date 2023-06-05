@@ -3,15 +3,18 @@
     if($this->session->userdata("role")=="gudang"){
         $this->load->view('gudang/part/menu');
     }
+    if($this->session->userdata("role")=="ppic"){
+        $this->load->view('ppic/part/menu');
+    }
     ?>
 <title>Gudang Kemas | Beranda</title>
 </head>
-<div class="container-fluid">
+<div class="container-fluid"  >
     <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-12">
                 <div class="card shadow mb-4">
-                    <div class="card-header bg-success py-3">
+                    <div class="card-header py-3" style="background-color:lightseagreen">
                         <h3 class="text-white"><b>Stock Gudang</b></h3>
                     </div>
                     <div class="card-body bg-light">
@@ -54,7 +57,7 @@
         <div class="col-md-1"></div>
             <div class="col-md-12">
                 <div class="card shadow mb-4">
-                    <div class="card-header bg-success py-3">
+                    <div class="card-header py-3" style="background-color:lightseagreen">
                         <h3 class="text-white"><b>Riwayat Transaksi</b></h3>
                     </div>
                     <div class="card-body bg-light">
