@@ -1,6 +1,6 @@
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-light">
+            <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2021</span>
@@ -66,6 +66,11 @@
 
     <!-- selectize -->
     <script src="<?=base_url()?>assets/vendor/selectize/selectize.min.js"></script>
+    <script src="<?=base_url()?>assets/vendor/select2/select2.min.js"></script>
+
+    <!-- sweetalert  -->
+    <!-- <script src="<?= base_url()?>assets/vendor/sweetalert2/sweetalert2.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

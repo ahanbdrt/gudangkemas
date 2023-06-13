@@ -1,8 +1,13 @@
-<?php
+<?php 
 $this->load->view("ppic/part/header");
-$this->load->view("ppic/part/menu");
-?>
-
+if($this->session->userdata("role")=="ppic") {
+    $this->load->view("ppic/part/menu");
+}else{
+    $this->load->view("manager/part/menu");
+}
+?>  
+<title>Gudang Kemas | Buffer Stock</title>
+</head>
 <div class="container-fluid"  >
     <div class="row">
         <div class="col-md-12">
@@ -68,9 +73,7 @@ $this->load->view("ppic/part/menu");
         </div>
     </div>
 </div>
-                    
-<?php $this->load->view("ppic/part/footer");?>
-
+<?php $this->load->view("ppic/part/footer");?>      
 <script>
     $(document).ready(function(){
         $("select").selectize()

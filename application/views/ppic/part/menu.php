@@ -23,7 +23,7 @@
                 <?php }else{ ?>
                     <li class="nav-item">
                 <?php } ?>
-                <a class="nav-link" href="<?= base_url("gudang/home") ?>">
+                <a class="nav-link" href="<?= base_url("home") ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Home</span></a>
             </li>
@@ -37,24 +37,24 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <?php if($this->uri->segment(2)=="masuk"){?>
+            <?php if($this->uri->segment(2)=="grup"){?>
                 <li class="nav-item active">
                 <?php }else{ ?>
                     <li class="nav-item">
                 <?php } ?>
-                <a class="nav-link" href="<?= base_url("gudang/masuk") ?>">
-                    <i class="fas fa-fw fa-arrow-right"></i>
+                <a class="nav-link" href="<?= base_url("ppic/grup") ?>">
+                    <i class="fas fa-fw fa-layer-group"></i>
                     <span>Grup</span></a>
                 </li>
 
             <!-- Nav Item - Tables -->
-            <?php if($this->uri->segment(2)=="keluar"){?>
+            <?php if($this->uri->segment(2)=="master"){?>
                 <li class="nav-item active">
                 <?php }else{ ?>
                     <li class="nav-item">
                 <?php } ?>
-                <a class="nav-link" href="<?= base_url("gudang/keluar") ?>">
-                    <i class="fas fa-fw fa-arrow-left"></i>
+                <a class="nav-link" href="<?= base_url("ppic/master") ?>">
+                    <i class="fas fa-fw fa-box"></i>
                     <span>Master barang</span></a>
             </li>
 
@@ -71,7 +71,7 @@
                 <?php }else{ ?>
                     <li class="nav-item">
                 <?php } ?>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="<?= base_url("report/reportperkode")?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Per Kode Barang</span></a>
             </li>
@@ -81,7 +81,7 @@
                 <?php }else{ ?>
                     <li class="nav-item">
                 <?php } ?>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="<?= base_url("report/reportpergrup")?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Per Grup</span></a>
             </li>
@@ -91,7 +91,7 @@
                 <?php }else{ ?>
                     <li class="nav-item">
                 <?php } ?>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="<?= base_url("report/reportall")?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Keseluruhan</span></a>
             </li>

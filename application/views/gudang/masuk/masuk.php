@@ -77,7 +77,7 @@
                         {data : "cat"},
                         {data : "aksi"},
                     ],
-                    dom: 'Bfrtip',
+                    dom: 'lBftip',
                     buttons: [
                         'copy','excel'
                     ],

@@ -121,7 +121,7 @@
                         {data : "namasubgr"},
                         {data : "tglmas"}
                     ],
-                    dom: 'Bfrtip',
+                    dom: 'lBftip',
                     buttons: [
                         'copy','excel'
                     ]
@@ -152,7 +152,7 @@
                         {data : "qty"},
                         {data : "ket"}
                     ],
-                    dom: 'Bfrtip',
+                    dom: 'lBftip',
                     buttons: [
                         'copy','excel'
                     ]
