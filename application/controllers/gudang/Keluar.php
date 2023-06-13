@@ -39,4 +39,59 @@ class Keluar extends CI_Controller{
         $data['master'] = $this->db->order_by('kode','ASC')->get('master')->result();
         $this->load->view("gudang/keluar/tambahkeluar",$data);
     }
+
+    public function store(){
+        $index = $this->input->post('index');
+        for($i=0;$i<=$index;$i++) {
+            $saldo = $this->db->select("saldo")->where("kode",$this->input->post('kode')[$i])->get("saldo")->result();
+            foreach($saldo as $s) {
+                $saldo_arr[$i]=$s->saldo;
+                $total[$i] = $saldo_arr[$i] - $this->input->post('qty')[$i];
+            }
+            $data_riwayat=array(
+                "tglform"=>$this->input->post('tglform'),
+                "noform"=>$this->input->post('noform'),
+                "kode"=>$this->input->post('kode')[$i],
+                "masuk"=>0,
+                "suplai"=>"",
+                "cat"=>$this->input->post('cat')[$i],
+                "keluar"=>$this->input->post('qty')[$i],
+                "saldo"=>$saldo_arr[$i],
+                "tanggal"=>date("Y-m-d H:i:s"),
+                "ket"=>"Output",
+                "adm"=>6,
+                "tgltrima"=>$this->input->post("tgltrima")[$i],
+            );
+            $data_keluar=array(
+                "tglform"=>$this->input->post('tglform'),
+                "noform"=>$this->input->post('noform'),
+                "kode"=>$this->input->post('kode')[$i],
+                "jumlah"=>$this->input->post('qty')[$i],
+                "saldo"=>$saldo_arr[$i],
+                "cat"=>$this->input->post('cat')[$i],
+                "tanggal"=>date("Y-m-d H:i:s"),
+                "adm"=>6,
+            );
+            $data_saldo = array("saldo"=>$total[$i]);
+            $this->db->trans_start();
+            $this->db->insert('riwayat', $data_riwayat);
+            $this->db->where("kode", $this->input->post('kode')[$i])->update('saldo', $data_saldo);
+            $this->db->insert('keluar', $data_keluar);
+            $this->db->trans_complete();
+            if($this->db->trans_status()===false) {
+                $response[] = array(
+                    "text"=>"Gagal ditambahkan!",
+                    "icon"=>"error",
+                    "bg"=>"bg-danger"
+                );
+            } else {
+                $response[] = array(
+                    "text"=>"Berhasil ditambahkan!",
+                    "icon"=>"success",
+                    "bg"=>"bg-success"
+                );
+            }            
+        }
+        echo json_encode($response);
+    }
 }
