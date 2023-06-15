@@ -52,7 +52,11 @@
         </div>
     </div>
 </div>
-<?php $this->load->view('gudang/part/footer');?>
+<?php 
+$this->load->view('gudang/part/footer');
+$this->load->view('gudang/keluar/editkeluar');
+$this->load->view('gudang/keluar/hapuskeluar');
+?>
 <script>
     $(document).ready(function() {
         $.ajax( {
@@ -87,3 +91,55 @@
         })
     })
 </script>
+
+</script>
+<?php if($this->session->flashdata("berhasil")){ ?>
+    <script>
+        const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: "success",
+                    title: '<?= $this->session->flashdata("berhasil")?>',
+                    iconColor:'white',
+                    color:'white',
+                    customClass:{
+                        popup:'bg-success'
+                    }
+                }) 
+    </script>
+<?php } ?>
+<?php if($this->session->flashdata("gagal")){ ?>
+    <script>
+        const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: "error",
+                    title: '<?= $this->session->flashdata("gagal")?>',
+                    iconColor:'white',
+                    color:'white',
+                    customClass:{
+                        popup:'bg-danger'
+                    }
+                }) 
+    </script>
+<?php } ?>

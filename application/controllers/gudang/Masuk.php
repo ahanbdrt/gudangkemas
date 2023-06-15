@@ -108,7 +108,7 @@ class Masuk extends CI_Controller{
         );
         $saldo = $this->db->where('kode',$this->input->post("kodelama"))->get("saldo")->result();
         foreach($saldo as $s){
-            $total = $s->saldo - $this->input->post("qtylama") +  $this->input->post("qty");
+            $total = $s->saldo - $this->input->post("qtylama") + $this->input->post("qty");
         }
         $data_saldo = array("saldo"=>$total);
         if($total>=0){

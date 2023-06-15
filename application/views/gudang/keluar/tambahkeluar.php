@@ -64,7 +64,7 @@ $this->load->view('gudang/part/menu');
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-lg-3">
-                                                <label style="font-size:large" for="qty0">Jumlah masuk :</label>
+                                                <label style="font-size:large" for="qty0">Jumlah keluar :</label>
                                             </div>
                                             <div class="col-lg-9">
                                                 <input type="text" id="qty0" name="qty0" class="form-control" required>
@@ -112,7 +112,7 @@ $this->load->view('gudang/part/menu');
     let count = document.getElementById('count').value;
     let i = Number(count);
     var d = document.getElementById("destination"+i);
-    var copy = '<div class="container-fluid"  ><div class="row"><div class="col-md-1"></div><div class="col-md-12"><div class="card shadow mb-3"><div class="card-header py-2" style="background-color:lightseagreen"><h5 class="text-white"><b>Data Transaksi Masuk'+' '+Number(i+2)+'</b></h5></div><div class="card-body bg-light"><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="kode'+Number(i+1)+'">Nama barang :</label></div><div class="col-lg-9"><select id="kode'+Number(i+1)+'" name="kode'+Number(i+1)+'" required><option disabled value selected>Pilih Barang</option><?php foreach($master as $m){?><option value="<?= $m->id?>"><?= $m->kode." || ". $m->nama?></option><?php } ?></select></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="qty'+Number(i+1)+'">Jumlah masuk :</label></div><div class="col-lg-9"><input type="text" id="qty'+Number(i+1)+'" name="qty'+Number(i+1)+'" class="form-control" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="tgltrima'+Number(i+1)+'">Tanggal terima :</label></div><div class="col-lg-9"><input type="date" class="form-control" id="tgltrima'+Number(i+1)+'" name="tgltrima'+Number(i+1)+'" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="cat'+Number(i+1)+'">Catatan :</label></div><div class="col-lg-9"><input type="text" class="form-control" id="cat'+Number(i+1)+'" name="cat'+Number(i+1)+'" required></div></div></div></div></div></div></div></div>';
+    var copy = '<div class="container-fluid"  ><div class="row"><div class="col-md-1"></div><div class="col-md-12"><div class="card shadow mb-3"><div class="card-header py-2" style="background-color:lightseagreen"><h5 class="text-white"><b>Data Transaksi Masuk'+' '+Number(i+2)+'</b></h5></div><div class="card-body bg-light"><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="kode'+Number(i+1)+'">Nama barang :</label></div><div class="col-lg-9"><select id="kode'+Number(i+1)+'" name="kode'+Number(i+1)+'" required><option disabled value selected>Pilih Barang</option><?php foreach($master as $m){?><option value="<?= $m->id?>"><?= $m->kode." || ". $m->nama?></option><?php } ?></select></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="qty'+Number(i+1)+'">Jumlah keluar :</label></div><div class="col-lg-9"><input type="text" id="qty'+Number(i+1)+'" name="qty'+Number(i+1)+'" class="form-control" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="tgltrima'+Number(i+1)+'">Tanggal terima :</label></div><div class="col-lg-9"><input type="date" class="form-control" id="tgltrima'+Number(i+1)+'" name="tgltrima'+Number(i+1)+'" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="cat'+Number(i+1)+'">Catatan :</label></div><div class="col-lg-9"><input type="text" class="form-control" id="cat'+Number(i+1)+'" name="cat'+Number(i+1)+'" required></div></div></div></div></div></div></div></div>';
     d.innerHTML += copy;
     document.getElementById('count').value = parseInt(i+1);
     document.getElementById('minus').disabled = false;
@@ -141,11 +141,13 @@ $this->load->view('gudang/part/menu');
         var kode=[]
         var qty=[]
         var tgltrima=[]
+        var cat=[]
         var status = true;
         for(let i=0;i<=index;i++){
             kode[i]=document.getElementById("kode"+i).value;
             qty[i]=document.getElementById("qty"+i).value;
             tgltrima[i]=document.getElementById("tgltrima"+i).value;
+            cat[i]=document.getElementById("cat"+i).value;
             if(document.getElementById("kode"+i).value=="" || document.getElementById("qty"+i).value=="" || document.getElementById("tgltrima"+i).value=="" || document.getElementById('noform').value==""){
                 status=false;
             }
@@ -175,7 +177,7 @@ $this->load->view('gudang/part/menu');
         }else{
 
             $.ajax({
-                url: "<?php echo site_url('gudang/masuk/store'); ?>",
+                url: "<?php echo site_url('gudang/keluar/store'); ?>",
                 method: "POST",
                 data: {
                     index:index,
@@ -184,10 +186,12 @@ $this->load->view('gudang/part/menu');
                     kode:kode,
                     qty: qty,
                     tgltrima:tgltrima,
+                    cat:cat
                 },
                 async: true,
                 dataType: 'json',
                 success: function(html) {
+                    console.log(html)
                         const Toast = Swal.mixin({
                             toast: true,
                             position: 'top-end',
@@ -201,12 +205,12 @@ $this->load->view('gudang/part/menu');
                         })
         
                         Toast.fire({
-                            icon: "success",
-                            title: "Berhasil ditambahkan!",
+                            icon: html[0].icon,
+                            title: html[0].text,
                             iconColor:'white',
                             color:'white',
                             customClass:{
-                                popup:"bg-success"
+                                popup:html[0].bg
                             }
                         });
                         
@@ -216,7 +220,7 @@ $this->load->view('gudang/part/menu');
                         document.getElementById('noform').value="";
                         document.getElementById('kode0').value="";
                         document.getElementById('qty0').value="";
-                        document.getElementById('suplier0').value="";
+                        document.getElementById('tgltrima0').value="";
                         document.getElementById('cat0').value="";
 
                         var count = document.getElementById("count").value

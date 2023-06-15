@@ -35,7 +35,7 @@ class Reportperkode extends CI_Controller
                 "noform"=>$h->noform,
                 "masuk"=>$h->masuk,
                 "keluar"=>$h->keluar,
-                "saldo"=>$h->saldo,
+                "saldo"=>$h->masuk-$h->keluar,
                 "satuan"=>$h->satuan,
                 "saldo_akhir"=>$h->masuk-$h->keluar,
             );
