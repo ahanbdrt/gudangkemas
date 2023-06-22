@@ -2,8 +2,8 @@
 $this->load->view("ppic/part/header");
 if($this->session->userdata("role")=="ppic") {
     $this->load->view("ppic/part/menu");
-}else{
-    $this->load->view("manager/part/menu");
+}elseif($this->session->userdata("role")=="manager"){
+    $this->load->view("manager/menu");
 }
 ?>  
 <title>Gudang Kemas | Report per Kode Barang</title>
@@ -13,7 +13,7 @@ if($this->session->userdata("role")=="ppic") {
         <div class="col-md-12">
             <div class="card shadow mb-3">
                 <div class="card-header py-2" style="background-color:lightseagreen">
-                    <h5 class="text-white"><b>Form Report Per Kode Barang</b></h5>
+                    <h5 class="text-white"><b>Report Per Kode Barang</b></h5>
                 </div>
                 <div class="card-body bg-light">
                     <div class="form-group-inner">
@@ -119,7 +119,7 @@ if($this->session->userdata("role")=="ppic") {
             success:function(html){
                 document.getElementById("table").hidden = false;
                 console.log(html)
-                var text = '<h5>Laporan kode barang: '+html[0].kode+' periode '+html[0].start+' s/d '+html[0].end+'</h5>';
+                var text = '<h5>Laporan kode barang: '+html[0].kode+' periode '+html[0].start+' s/d '+html[0].end+'</h5><br><h5>Dengan Saldo Awal: <b>'+html[0].saldo_awal+'</b></h5>';
                 document.getElementById("loading").innerHTML = text
                 $("#table").DataTable({
                     destroy:true,

@@ -2,13 +2,30 @@
 $this->load->view("ppic/part/header");
 if($this->session->userdata("role")=="ppic") {
     $this->load->view("ppic/part/menu");
-}else{
-    $this->load->view("manager/part/menu");
+}elseif($this->session->userdata("role")=="manager"){
+    $this->load->view("manager/menu");
 }
 ?>  
 <title>Gudang Kemas | Buffer Stock</title>
 </head>
-<div class="container-fluid"  >
+<div class="container-fluid">
+<div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-3">
+                <div class="card-header py-2" style="background-color:lightseagreen">
+                    <h5 class="text-white"><b>Buffer Stock</b></h5>
+                </div>
+                <div class="card-body bg-light">
+                    <p>Buffer Stock adalah stock tambahan yang bertujuan untuk menjadi sebuah penyangga guna memenuhi permintaan yang tidak pasti. dengan membuat sebuah sistem yang dapat membantu menentukan jumlah stock  minimal yang diperlukan untuk mencegah stock out sehingga dapat menentukan jumlah barang yang dibutuhkan sehingga dapat tetap efisien dalam memenuhi permintaan costumer</p>
+
+                    <p><b><span>Keterangan:</span></b><br>
+                    Beberapa barang tidak di tampilkan karena
+                    fitur ini hanya berlaku untuk barang yang memiliki riwayat transaksi minimal 1 tahun
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="card shadow mb-3">
@@ -95,9 +112,19 @@ if($this->session->userdata("role")=="ppic") {
                 async: true,
                 dataType: 'json',
                 success: function(html) {
-                    var data = '<h5 class="mb-3">Hasil Buffer stock dari kode <b>'+html.kode+'</b> dengan lead time <b>'+html.lead+'</b> Bulan sebagai berikut:</h5><div class="table-responsive"><table id="tabel" class="table table-bordered" width="100%"><thead><tr><th>Buffer Stock</th><th>Stock di Gudang saat ini</th></tr></thead><tbody><tr><td>'+html.buffer+' '+html.satuan+'</td><td>'+html.saldo+' '+html.satuan+'</td></tr></tbody></table></div>'
+                    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    var d  = new Date();
+                    var bulan = Number(lead);
+                    var t = d.getFullYear();
+                    if (Number(d.getMonth()+bulan) > 11) {
+                        var current = new Date(t +(d.getMonth()+bulan)/12 ,(d.getMonth()+bulan)%12 , d.getDate());
+                    } else {
+                        var current = new Date(t, d.getMonth()+bulan, d.getDate());
+                    }
+                    var data = '<h5 class="mb-3">Hasil Buffer stock dari kode <b>'+html.kode+'</b> dengan lead time <b>'+html.lead+'</b> Bulan sebagai berikut:</h5><div class="table-responsive"><table id="tabel" class="table table-bordered" width="100%"><thead><tr><th>Buffer Stock</th><th>Stock di Gudang saat ini</th></tr></thead><tbody><tr><td>'+html.buffer+' '+html.satuan+'</td><td>'+html.saldo+' '+html.satuan+'</td></tr></tbody></table></div>';
+                    data+="<br><span>Berdasarkan data diatas, stock minimum yang diperlukan pada:<br> <b>"+d.toLocaleDateString("ID", options)+"</b> sampai <b>"+current.toLocaleDateString("ID", options)+"</b><br>Sebesar: <b>"+html.buffer+" "+html.satuan+"</b></span>"
                     document.getElementById("loading").innerHTML = data
-                    console.log(html)
+                    // console.log(html)
                 }
         });
     }

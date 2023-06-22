@@ -35,8 +35,17 @@ class Buffer_stock extends CI_Controller{
             $riw_per_bulan[] = $r->keluar;
         }
 
+        $bulan_awal = $this->db->select("tglform")->FROM("riwayat")->where("kode",$id)->order_by("tglform","ASC")->limit(1)->get()->result();
+        foreach($bulan_awal as $ba) {
+           $tglform =  $ba->tglform;
+        }
+        $awal = date_create($tglform);
+        $akhir = date_create(); // waktu sekarang
+        $diff = date_diff($akhir, $awal);
+        $jumlah_bulan=$diff->y;
+
         $nilai_max=max($riw_per_bulan);
-        $nilai_rata = array_sum($riw_per_bulan)/count($riw_per_bulan);
+        $nilai_rata = array_sum($riw_per_bulan)/$jumlah_bulan;
 
         $buffer = ($nilai_max-$nilai_rata)*$lead;
 

@@ -5,6 +5,8 @@
     }
     if($this->session->userdata("role")=="ppic"){
         $this->load->view('ppic/part/menu');
+    }elseif($this->session->userdata("role")=="manager"){
+        $this->load->view('manager/menu');
     }
     ?>
 <title>Gudang Kemas | Beranda</title>

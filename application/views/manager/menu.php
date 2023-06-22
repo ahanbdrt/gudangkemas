@@ -28,36 +28,6 @@
                     <span>Home</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Master
-            </div>
-
-            <!-- Nav Item - Charts -->
-            <?php if($this->uri->segment(2)=="grup"){?>
-                <li class="nav-item active">
-                <?php }else{ ?>
-                    <li class="nav-item">
-                <?php } ?>
-                <a class="nav-link" href="<?= base_url("ppic/grup") ?>">
-                    <i class="fas fa-fw fa-layer-group"></i>
-                    <span>Grup</span></a>
-                </li>
-
-            <!-- Nav Item - Tables -->
-            <?php if($this->uri->segment(2)=="master"){?>
-                <li class="nav-item active">
-                <?php }else{ ?>
-                    <li class="nav-item">
-                <?php } ?>
-                <a class="nav-link" href="<?= base_url("ppic/master") ?>">
-                    <i class="fas fa-fw fa-box"></i>
-                    <span>Master barang</span></a>
-            </li>
-
             <hr class="sidebar-divider">
 
             <!-- Heading -->

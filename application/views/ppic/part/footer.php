@@ -60,6 +60,8 @@
     <script src="<?= base_url()?>assets/vendor/datatables/vfs_fonts.js"></script>
     <script src="<?= base_url()?>assets/vendor/datatables/buttons.html5.min.js"></script>
     <script src="<?= base_url()?>assets/vendor/datatables/buttons.print.min.js"></script>
+    <script src="<?= base_url()?>assets/vendor/datatables/rowGroup.min.js"></script>
+    <script src="<?= base_url()?>assets/vendor/datatables/rowsGroup.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="<?=base_url()?>assets/js/demo/datatables-demo.js"></script>

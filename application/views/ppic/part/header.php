@@ -21,5 +21,6 @@
     <link href="<?=base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?=base_url()?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/datatables/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/datatables/rowgrup.min.css"/>
     <link rel="stylesheet" href="<?=base_url()?>assets/vendor/selectize/selectize.default.min.css"/>
     <link rel="stylesheet" href="<?=base_url()?>assets/vendor/select2/select2.min.css"/>
