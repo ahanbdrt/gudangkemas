@@ -1,4 +1,11 @@
 <?php
+/**
+ * @property  session $session
+ * @property  input $input
+ * @property  db $db
+ * @property  Masuk_model $Masuk_model
+ * 
+ */
 class Masuk extends CI_Controller{
     public function __construct()
     {

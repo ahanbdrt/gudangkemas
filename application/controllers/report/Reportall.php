@@ -1,4 +1,10 @@
 <?php
+/**
+ * @property  session $session
+ * @property  input $input
+ * @property  db $db
+ * 
+ */
 class Reportall extends CI_Controller
 {
     public function __construct()

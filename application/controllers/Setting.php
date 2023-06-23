@@ -1,6 +1,13 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * @property  session $session
+ * @property  input $input
+ * @property  db $db
+ * 
+ */
+
 class Setting extends CI_Controller {
 
     public function __construct()

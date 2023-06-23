@@ -1,4 +1,11 @@
 <?php
+/**
+ * @property  session $session
+ * @property  input $input
+ * @property  db $db
+ * @property  Home_model $Home_model
+ * 
+ */
 class Home extends CI_Controller{
     public function __construct()
     {

@@ -1,4 +1,12 @@
 <?php
+/**
+ * @property  session $session
+ * @property  input $input
+ * @property  db $db
+ * @property  form_validation $form_validation
+ * @property  Auth_model $Auth_model
+ * 
+ */
 class Auth extends CI_Controller
 {
     public function index(){
