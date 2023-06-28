@@ -13,7 +13,7 @@ class Setting extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('role') != 'gudang' && $this->session->userdata('role') != 'ppic' && $this->session->userdata('role') != 'ppic' && $this->session->userdata('role') != 'manager') {
+        if ($this->session->userdata('role') != 'gudang' && $this->session->userdata('role') != 'ppic' && $this->session->userdata('role') != 'gudang' && $this->session->userdata('role') != 'manager') {
             $this->session->set_flashdata('pesan', '<div class="fade show text-center" style="color:red" role="alert">
   Anda Belum Login!
 </div><br>');

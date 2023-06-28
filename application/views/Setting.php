@@ -5,7 +5,7 @@ if($this->session->userdata("role")=="ppic") {
 }elseif($this->session->userdata("role")=="manager"){
     $this->load->view("manager/menu");
 }else{
-    $this->load->view("gudang/menu");
+    $this->load->view("gudang/part/menu");
 }
 ?>  
 <div class="container-fluid">

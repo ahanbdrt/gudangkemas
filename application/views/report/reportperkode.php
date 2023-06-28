@@ -25,10 +25,10 @@ if($this->session->userdata("role")=="ppic") {
                             <div class="col-lg-9">
     
                                 <div class="input-daterange input-group" id="datepicker">
-                                    <input type="date" id="start" class="form-control mr-1"
+                                <input type="date" id="start" onchange="validasi_tanggal()" class="form-control mr-1"
                                         name="start" value="" required />
                                     <span class="input-group-addon ml-1 mr-1">to</span>
-                                    <input type="date" id="end" class="form-control ml-1" name="end"
+                                    <input type="date" id="end" onchange="validasi_tanggal()" value="<?= date("Y-m-d")?>" class="form-control ml-1" name="end"
                                         required />
                                 </div>
                             </div>
@@ -72,6 +72,7 @@ if($this->session->userdata("role")=="ppic") {
                         <div class="spinner-grow" style="color:coral" role="status"></div>
                         <div class="spinner-grow" style="color:fuchsia" role="status"></div>
                     </div>
+                    <div class="table-responsive">
                     <table class="table table-bordered table responsive" id="table" width="100%" hidden>
                         <thead>
                             <tr>
@@ -89,6 +90,7 @@ if($this->session->userdata("role")=="ppic") {
                         <tbody>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,6 +103,18 @@ if($this->session->userdata("role")=="ppic") {
     })
 </script>
 <script>
+    function validasi_tanggal(){
+        var start = document.getElementById("start").value
+        var end = document.getElementById("end").value
+        if(Date.parse(start)>Date.parse(end)){
+            if(end!=null){
+            window.alert("Tanggal mulai lebih besar dari tanggal akhir!");
+            var d = new Date()
+            document.getElementById("start").value="0000-00-00";
+            document.getElementById("end").value= d.Date();
+            }
+        }
+    }
     function tampil(){
         var start = document.getElementById("start").value
         var end = document.getElementById("end").value

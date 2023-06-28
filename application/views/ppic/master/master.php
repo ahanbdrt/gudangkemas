@@ -129,7 +129,7 @@ $this->load->view('ppic/master/hapusmaster');
                     ],
                     dom: 'lBftip',
                     buttons: [
-                        'copy','excel'
+                        'copy','excel','pdf'
                     ]
                     })
             }

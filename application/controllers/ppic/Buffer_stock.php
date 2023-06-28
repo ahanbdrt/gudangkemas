@@ -38,6 +38,8 @@ class Buffer_stock extends CI_Controller{
             $satuan=$m->satuan;
         }
 
+        
+
         $riwayat = $this->db->query("SELECT sum(keluar) as keluar FROM `riwayat` where kode='$id' and masuk=0 GROUP BY YEAR(tglform),MONTH(tglform)");
         foreach($riwayat->result() as $r){
             $riw_per_bulan[] = $r->keluar;

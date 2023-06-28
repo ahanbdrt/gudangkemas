@@ -16,7 +16,7 @@ if($this->session->userdata("role")=="ppic") {
                     <h5 class="text-white"><b>Buffer Stock</b></h5>
                 </div>
                 <div class="card-body bg-light">
-                    <p>Buffer Stock adalah stock tambahan yang bertujuan untuk menjadi sebuah penyangga guna memenuhi permintaan yang tidak pasti. dengan membuat sebuah sistem yang dapat membantu menentukan jumlah stock  minimal yang diperlukan untuk mencegah stock out sehingga dapat menentukan jumlah barang yang dibutuhkan sehingga dapat tetap efisien dalam memenuhi permintaan costumer</p>
+                    <p>Buffer Stock adalah stock tambahan yang bertujuan untuk menjadi sebuah penyangga guna memenuhi permintaan yang tidak pasti. dengan membuat sebuah sistem yang dapat membantu menentukan jumlah stock  minimal yang diperlukan untuk mencegah stock out sehingga dapat menentukan jumlah barang yang dibutuhkan.</p>
 
                     <p><b><span>Keterangan:</span></b><br>
                     Beberapa barang tidak di tampilkan karena
