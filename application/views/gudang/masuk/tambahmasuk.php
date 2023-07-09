@@ -75,7 +75,12 @@ $this->load->view('gudang/part/menu');
                                                 <label style="font-size:large" for="suplier0">Suplier :</label>
                                             </div>
                                             <div class="col-lg-9">
-                                                <input type="text" class="form-control" id="suplier0" name="suplier0" required>
+                                                <input type="text" class="form-control" id="suplier0" name="suplier0" list="supplier" required>
+                                                <datalist id="supplier">
+                                                    <?php foreach($supplier as $s){?>
+                                                    <option value="<?=$s->nama?>"><?=$s->nama?></option>
+                                                    <?php } ?>
+                                                </datalist>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -112,7 +117,7 @@ $this->load->view('gudang/part/menu');
     let count = document.getElementById('count').value;
     let i = Number(count);
     var d = document.getElementById("destination"+i);
-    var copy = '<div class="container-fluid"  ><div class="row"><div class="col-md-1"></div><div class="col-md-12"><div class="card shadow mb-3"><div class="card-header py-2" style="background-color:lightseagreen"><h5 class="text-white"><b>Data Transaksi Masuk'+' '+Number(i+2)+'</b></h5></div><div class="card-body bg-light"><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="kode'+Number(i+1)+'">Nama barang :</label></div><div class="col-lg-9"><select id="kode'+Number(i+1)+'" name="kode'+Number(i+1)+'" required><option disabled value selected>Pilih Barang</option><?php foreach($master as $m){?><option value="<?= $m->id?>"><?= $m->kode." || ". $m->nama?></option><?php } ?></select></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="qty'+Number(i+1)+'">Jumlah masuk :</label></div><div class="col-lg-9"><input type="text" id="qty'+Number(i+1)+'" name="qty'+Number(i+1)+'" class="form-control" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="suplier'+Number(i+1)+'">Suplier :</label></div><div class="col-lg-9"><input type="text" class="form-control" id="suplier'+Number(i+1)+'" name="suplier'+Number(i+1)+'" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="cat'+Number(i+1)+'">Catatan :</label></div><div class="col-lg-9"><input type="text" class="form-control" id="cat'+Number(i+1)+'" name="cat'+Number(i+1)+'" required></div></div></div></div></div></div></div></div></div>';
+    var copy = '<div class="container-fluid"  ><div class="row"><div class="col-md-1"></div><div class="col-md-12"><div class="card shadow mb-3"><div class="card-header py-2" style="background-color:lightseagreen"><h5 class="text-white"><b>Data Transaksi Masuk'+' '+Number(i+2)+'</b></h5></div><div class="card-body bg-light"><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="kode'+Number(i+1)+'">Nama barang :</label></div><div class="col-lg-9"><select id="kode'+Number(i+1)+'" name="kode'+Number(i+1)+'" required><option disabled value selected>Pilih Barang</option><?php foreach($master as $m){?><option value="<?= $m->id?>"><?= $m->kode." || ". $m->nama?></option><?php } ?></select></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="qty'+Number(i+1)+'">Jumlah masuk :</label></div><div class="col-lg-9"><input type="text" id="qty'+Number(i+1)+'" name="qty'+Number(i+1)+'" class="form-control" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="suplier'+Number(i+1)+'">Suplier :</label></div><div class="col-lg-9"><input type="text" class="form-control" id="suplier'+Number(i+1)+'" name="suplier'+Number(i+1)+'" list="supplier" required></div></div><div class="row mb-3"><div class="col-lg-3"><label style="font-size:large" for="cat'+Number(i+1)+'">Catatan :</label></div><div class="col-lg-9"><input type="text" class="form-control" id="cat'+Number(i+1)+'" name="cat'+Number(i+1)+'" required></div></div></div></div></div></div></div></div></div>';
     d.innerHTML += copy;
     document.getElementById('count').value = parseInt(i+1);
     document.getElementById('minus').disabled = false;

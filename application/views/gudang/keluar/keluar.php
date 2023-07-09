@@ -84,7 +84,7 @@ $this->load->view('gudang/keluar/hapuskeluar');
                     ],
                     dom: 'lBftip',
                     buttons: [
-                        'copy','excel'
+                        'copy','excel','pdf'
                     ]
                 })
             }

@@ -125,7 +125,7 @@ $this->load->view('ppic/grup/hapusgrup');
                     ],
                     dom: 'lBftip',
                     buttons: [
-                        'copy','excel'
+                        'copy','excel','pdf'
                     ]
                     })
             }

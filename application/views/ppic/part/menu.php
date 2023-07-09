@@ -104,6 +104,15 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Buffer Stock</span></a>
             </li>
+            <?php if($this->uri->segment(2)=="regresi"){?>
+                <li class="nav-item active">
+                <?php }else{ ?>
+                    <li class="nav-item">
+                <?php } ?>
+                <a class="nav-link" href="<?=base_url()?>ppic/regresi">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Regresi Linear</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

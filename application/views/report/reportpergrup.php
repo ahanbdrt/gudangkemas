@@ -97,7 +97,11 @@ if($this->session->userdata("role")=="ppic") {
         var end = document.getElementById("end").value
         if(Date.parse(start)>Date.parse(end)){
             if(end!=null){
-            window.alert("Tanggal mulai lebih besar dari tanggal akhir!");
+            swal.fire(
+                "Peringatan!",
+                "Tanggal mulai lebih besar dari tanggal akhir!",
+                "warning"
+            );
             var d = new Date()
             document.getElementById("start").value="0000-00-00";
             document.getElementById("end").value= d.Date();

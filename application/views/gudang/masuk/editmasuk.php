@@ -55,7 +55,12 @@
                                 <label style="font-size:large" for="suplier">Suplier :</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control" id="suplier" name="suplier">
+                                <input type="text" class="form-control" id="suplier" list="supplier" name="suplier">
+                                <datalist id="supplier">
+                                    <?php foreach($supplier as $s){?>
+                                    <option value="<?=$s->nama?>"><?=$s->nama?></option>
+                                    <?php } ?>
+                                </datalist>
                             </div>
                         </div>
                         <div class="row mb-3">

@@ -79,7 +79,7 @@
                     ],
                     dom: 'lBftip',
                     buttons: [
-                        'copy','excel'
+                        'copy','excel','pdf'
                     ],
                 })
             }
